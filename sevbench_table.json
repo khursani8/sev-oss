@@ -1,0 +1,24 @@
+{
+  "sentiment_nox": 0.765625,
+  "sentiment_lux": 0.78125,
+  "emotion_nox": 0.834,
+  "emotion_lux": 0.76,
+  "toxic_nox": 0.874,
+  "toxic_lux": 0.866,
+  "malaya_best": {
+    "sentiment": 0.99353,
+    "emotion": 0.9979,
+    "toxic": 0.81768
+  },
+  "s29_finetuned": {
+    "sentiment": 0.8756,
+    "emotion": 0.798,
+    "toxic": 0.87
+  },
+  "beats_s29": {
+    "toxic": true,
+    "sentiment_vs_nox": true,
+    "emotion_vs_nox": false
+  },
+  "note": "s29 fine-tuned Qwen3-4B-Instruct per task on our train splits (our adapters, our server); vega excluded as circular; malaya numbers are their own test sets"
+}

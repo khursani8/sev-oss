@@ -1,0 +1,1281 @@
+{
+  "model": "mesolitica/sentiment-analysis-nanot5-small-malaysian-cased (malaya 5.1 default)",
+  "sanity_probes": {
+    "hits": 8,
+    "n": 10,
+    "rows": [
+      {
+        "text": "Parcel saya sudah 8 hari tak sampai, saya marah!",
+        "expected": "negative",
+        "predicted": "negative",
+        "match": true
+      },
+      {
+        "text": "Servis sungguh teruk, wang saya hilang begitu sahaja.",
+        "expected": "negative",
+        "predicted": "negative",
+        "match": true
+      },
+      {
+        "text": "Terima kasih, barangan sampai dengan cepat dan selamat!",
+        "expected": "positive",
+        "predicted": "positive",
+        "match": true
+      },
+      {
+        "text": "Produk ini sangat bagus, saya berpuas hati.",
+        "expected": "positive",
+        "predicted": "positive",
+        "match": true
+      },
+      {
+        "text": "Bila parcel saya akan sampai?",
+        "expected": "neutral",
+        "predicted": "neutral",
+        "match": true
+      },
+      {
+        "text": "Saya ingin menanya tentang harga bulanan.",
+        "expected": "neutral",
+        "predicted": "neutral",
+        "match": true
+      },
+      {
+        "text": "Saya TIDAK marah, barang sampai dengan baik.",
+        "expected": "positive",
+        "predicted": "negative",
+        "match": false
+      },
+      {
+        "text": "Barang tak rosak, jangan risau.",
+        "expected": "positive",
+        "predicted": "negative",
+        "match": false
+      },
+      {
+        "text": "Aduan saya masih belum diselesaikan, kecewa.",
+        "expected": "negative",
+        "predicted": "negative",
+        "match": true
+      },
+      {
+        "text": "Kualiti teruk sangat, menyesal beli.",
+        "expected": "negative",
+        "predicted": "negative",
+        "match": true
+      }
+    ]
+  },
+  "eval_split": {
+    "n": 200,
+    "accuracy_vs_teacher": 0.515,
+    "seconds_per_row": 0.079
+  },
+  "comparison": {
+    "nox_zero_shot": 0.7656,
+    "finetuned_ours": 0.8756,
+    "malaya_published_xlnet": 0.99353
+  },
+  "rows": [
+    {
+      "id": 7675,
+      "gold": "neutral",
+      "malaya": "negative",
+      "match": false
+    },
+    {
+      "id": 6923,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 7919,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 7134,
+      "gold": "negative",
+      "malaya": "positive",
+      "match": false
+    },
+    {
+      "id": 7814,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 7915,
+      "gold": "positive",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 7735,
+      "gold": "negative",
+      "malaya": "negative",
+      "match": true
+    },
+    {
+      "id": 7485,
+      "gold": "positive",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 6459,
+      "gold": "neutral",
+      "malaya": "positive",
+      "match": false
+    },
+    {
+      "id": 7353,
+      "gold": "negative",
+      "malaya": "negative",
+      "match": true
+    },
+    {
+      "id": 7989,
+      "gold": "neutral",
+      "malaya": "negative",
+      "match": false
+    },
+    {
+      "id": 6910,
+      "gold": "negative",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 7729,
+      "gold": "neutral",
+      "malaya": "neutral",
+      "match": true
+    },
+    {
+      "id": 6506,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 6721,
+      "gold": "neutral",
+      "malaya": "negative",
+      "match": false
+    },
+    {
+      "id": 6631,
+      "gold": "neutral",
+      "malaya": "positive",
+      "match": false
+    },
+    {
+      "id": 7161,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 7360,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 6904,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 7179,
+      "gold": "neutral",
+      "malaya": "positive",
+      "match": false
+    },
+    {
+      "id": 7513,
+      "gold": "negative",
+      "malaya": "negative",
+      "match": true
+    },
+    {
+      "id": 6608,
+      "gold": "neutral",
+      "malaya": "neutral",
+      "match": true
+    },
+    {
+      "id": 7575,
+      "gold": "positive",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 6426,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 7897,
+      "gold": "neutral",
+      "malaya": "positive",
+      "match": false
+    },
+    {
+      "id": 6843,
+      "gold": "neutral",
+      "malaya": "neutral",
+      "match": true
+    },
+    {
+      "id": 7235,
+      "gold": "positive",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 6972,
+      "gold": "neutral",
+      "malaya": "negative",
+      "match": false
+    },
+    {
+      "id": 6772,
+      "gold": "negative",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 7968,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 7197,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 6726,
+      "gold": "negative",
+      "malaya": "negative",
+      "match": true
+    },
+    {
+      "id": 7960,
+      "gold": "neutral",
+      "malaya": "positive",
+      "match": false
+    },
+    {
+      "id": 6547,
+      "gold": "negative",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 6684,
+      "gold": "negative",
+      "malaya": "negative",
+      "match": true
+    },
+    {
+      "id": 7665,
+      "gold": "positive",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 7664,
+      "gold": "positive",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 7311,
+      "gold": "positive",
+      "malaya": "negative",
+      "match": false
+    },
+    {
+      "id": 6659,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 6670,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 6403,
+      "gold": "negative",
+      "malaya": "negative",
+      "match": true
+    },
+    {
+      "id": 6410,
+      "gold": "neutral",
+      "malaya": "negative",
+      "match": false
+    },
+    {
+      "id": 6828,
+      "gold": "neutral",
+      "malaya": "positive",
+      "match": false
+    },
+    {
+      "id": 7984,
+      "gold": "negative",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 6841,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 6739,
+      "gold": "neutral",
+      "malaya": "positive",
+      "match": false
+    },
+    {
+      "id": 6740,
+      "gold": "neutral",
+      "malaya": "negative",
+      "match": false
+    },
+    {
+      "id": 6992,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 7042,
+      "gold": "neutral",
+      "malaya": "positive",
+      "match": false
+    },
+    {
+      "id": 6807,
+      "gold": "positive",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 7504,
+      "gold": "positive",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 7788,
+      "gold": "negative",
+      "malaya": "negative",
+      "match": true
+    },
+    {
+      "id": 7681,
+      "gold": "positive",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 6819,
+      "gold": "neutral",
+      "malaya": "neutral",
+      "match": true
+    },
+    {
+      "id": 6803,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 7184,
+      "gold": "positive",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 7011,
+      "gold": "neutral",
+      "malaya": "positive",
+      "match": false
+    },
+    {
+      "id": 6444,
+      "gold": "neutral",
+      "malaya": "negative",
+      "match": false
+    },
+    {
+      "id": 7139,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 7249,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 6698,
+      "gold": "negative",
+      "malaya": "positive",
+      "match": false
+    },
+    {
+      "id": 6940,
+      "gold": "neutral",
+      "malaya": "neutral",
+      "match": true
+    },
+    {
+      "id": 6533,
+      "gold": "negative",
+      "malaya": "negative",
+      "match": true
+    },
+    {
+      "id": 7079,
+      "gold": "neutral",
+      "malaya": "neutral",
+      "match": true
+    },
+    {
+      "id": 7017,
+      "gold": "positive",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 7635,
+      "gold": "negative",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 7600,
+      "gold": "neutral",
+      "malaya": "positive",
+      "match": false
+    },
+    {
+      "id": 6406,
+      "gold": "negative",
+      "malaya": "negative",
+      "match": true
+    },
+    {
+      "id": 7620,
+      "gold": "negative",
+      "malaya": "negative",
+      "match": true
+    },
+    {
+      "id": 7849,
+      "gold": "neutral",
+      "malaya": "positive",
+      "match": false
+    },
+    {
+      "id": 7092,
+      "gold": "positive",
+      "malaya": "negative",
+      "match": false
+    },
+    {
+      "id": 6535,
+      "gold": "neutral",
+      "malaya": "neutral",
+      "match": true
+    },
+    {
+      "id": 7034,
+      "gold": "neutral",
+      "malaya": "positive",
+      "match": false
+    },
+    {
+      "id": 7127,
+      "gold": "neutral",
+      "malaya": "positive",
+      "match": false
+    },
+    {
+      "id": 7026,
+      "gold": "negative",
+      "malaya": "negative",
+      "match": true
+    },
+    {
+      "id": 7384,
+      "gold": "neutral",
+      "malaya": "positive",
+      "match": false
+    },
+    {
+      "id": 7826,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 7046,
+      "gold": "neutral",
+      "malaya": "positive",
+      "match": false
+    },
+    {
+      "id": 6778,
+      "gold": "negative",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 7385,
+      "gold": "neutral",
+      "malaya": "positive",
+      "match": false
+    },
+    {
+      "id": 7367,
+      "gold": "negative",
+      "malaya": "negative",
+      "match": true
+    },
+    {
+      "id": 7843,
+      "gold": "negative",
+      "malaya": "negative",
+      "match": true
+    },
+    {
+      "id": 6760,
+      "gold": "neutral",
+      "malaya": "negative",
+      "match": false
+    },
+    {
+      "id": 6516,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 6924,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 6446,
+      "gold": "positive",
+      "malaya": "negative",
+      "match": false
+    },
+    {
+      "id": 7935,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 7132,
+      "gold": "negative",
+      "malaya": "positive",
+      "match": false
+    },
+    {
+      "id": 7227,
+      "gold": "positive",
+      "malaya": "negative",
+      "match": false
+    },
+    {
+      "id": 6437,
+      "gold": "neutral",
+      "malaya": "neutral",
+      "match": true
+    },
+    {
+      "id": 7524,
+      "gold": "negative",
+      "malaya": "negative",
+      "match": true
+    },
+    {
+      "id": 7257,
+      "gold": "positive",
+      "malaya": "negative",
+      "match": false
+    },
+    {
+      "id": 7149,
+      "gold": "positive",
+      "malaya": "negative",
+      "match": false
+    },
+    {
+      "id": 7170,
+      "gold": "positive",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 7584,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 6418,
+      "gold": "neutral",
+      "malaya": "negative",
+      "match": false
+    },
+    {
+      "id": 7327,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 6495,
+      "gold": "negative",
+      "malaya": "positive",
+      "match": false
+    },
+    {
+      "id": 6770,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 7677,
+      "gold": "neutral",
+      "malaya": "neutral",
+      "match": true
+    },
+    {
+      "id": 6802,
+      "gold": "negative",
+      "malaya": "positive",
+      "match": false
+    },
+    {
+      "id": 6643,
+      "gold": "negative",
+      "malaya": "negative",
+      "match": true
+    },
+    {
+      "id": 7947,
+      "gold": "neutral",
+      "malaya": "neutral",
+      "match": true
+    },
+    {
+      "id": 6903,
+      "gold": "negative",
+      "malaya": "negative",
+      "match": true
+    },
+    {
+      "id": 7346,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 7105,
+      "gold": "positive",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 7449,
+      "gold": "neutral",
+      "malaya": "neutral",
+      "match": true
+    },
+    {
+      "id": 7126,
+      "gold": "neutral",
+      "malaya": "positive",
+      "match": false
+    },
+    {
+      "id": 7474,
+      "gold": "neutral",
+      "malaya": "negative",
+      "match": false
+    },
+    {
+      "id": 6913,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 7988,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 7347,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 6621,
+      "gold": "positive",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 7607,
+      "gold": "negative",
+      "malaya": "negative",
+      "match": true
+    },
+    {
+      "id": 7932,
+      "gold": "neutral",
+      "malaya": "neutral",
+      "match": true
+    },
+    {
+      "id": 7999,
+      "gold": "neutral",
+      "malaya": "neutral",
+      "match": true
+    },
+    {
+      "id": 7152,
+      "gold": "neutral",
+      "malaya": "neutral",
+      "match": true
+    },
+    {
+      "id": 7005,
+      "gold": "neutral",
+      "malaya": "neutral",
+      "match": true
+    },
+    {
+      "id": 6475,
+      "gold": "neutral",
+      "malaya": "negative",
+      "match": false
+    },
+    {
+      "id": 7286,
+      "gold": "negative",
+      "malaya": "negative",
+      "match": true
+    },
+    {
+      "id": 6586,
+      "gold": "positive",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 6826,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 7097,
+      "gold": "neutral",
+      "malaya": "neutral",
+      "match": true
+    },
+    {
+      "id": 7450,
+      "gold": "negative",
+      "malaya": "positive",
+      "match": false
+    },
+    {
+      "id": 7650,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 7142,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 6703,
+      "gold": "neutral",
+      "malaya": "neutral",
+      "match": true
+    },
+    {
+      "id": 7096,
+      "gold": "neutral",
+      "malaya": "neutral",
+      "match": true
+    },
+    {
+      "id": 6964,
+      "gold": "neutral",
+      "malaya": "negative",
+      "match": false
+    },
+    {
+      "id": 7838,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 7516,
+      "gold": "positive",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 6588,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 7039,
+      "gold": "positive",
+      "malaya": "negative",
+      "match": false
+    },
+    {
+      "id": 7804,
+      "gold": "positive",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 7048,
+      "gold": "negative",
+      "malaya": "negative",
+      "match": true
+    },
+    {
+      "id": 7027,
+      "gold": "negative",
+      "malaya": "negative",
+      "match": true
+    },
+    {
+      "id": 6763,
+      "gold": "neutral",
+      "malaya": "positive",
+      "match": false
+    },
+    {
+      "id": 6560,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 7683,
+      "gold": "positive",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 6704,
+      "gold": "neutral",
+      "malaya": "neutral",
+      "match": true
+    },
+    {
+      "id": 7876,
+      "gold": "negative",
+      "malaya": "negative",
+      "match": true
+    },
+    {
+      "id": 7811,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 7033,
+      "gold": "neutral",
+      "malaya": "neutral",
+      "match": true
+    },
+    {
+      "id": 7390,
+      "gold": "positive",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 6730,
+      "gold": "positive",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 7874,
+      "gold": "negative",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 6499,
+      "gold": "positive",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 6565,
+      "gold": "negative",
+      "malaya": "negative",
+      "match": true
+    },
+    {
+      "id": 7630,
+      "gold": "negative",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 7492,
+      "gold": "positive",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 7231,
+      "gold": "neutral",
+      "malaya": "negative",
+      "match": false
+    },
+    {
+      "id": 6465,
+      "gold": "negative",
+      "malaya": "negative",
+      "match": true
+    },
+    {
+      "id": 6886,
+      "gold": "positive",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 7916,
+      "gold": "neutral",
+      "malaya": "negative",
+      "match": false
+    },
+    {
+      "id": 7616,
+      "gold": "neutral",
+      "malaya": "positive",
+      "match": false
+    },
+    {
+      "id": 7104,
+      "gold": "positive",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 6912,
+      "gold": "negative",
+      "malaya": "negative",
+      "match": true
+    },
+    {
+      "id": 7333,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 7733,
+      "gold": "neutral",
+      "malaya": "negative",
+      "match": false
+    },
+    {
+      "id": 7263,
+      "gold": "neutral",
+      "malaya": "negative",
+      "match": false
+    },
+    {
+      "id": 6514,
+      "gold": "neutral",
+      "malaya": "positive",
+      "match": false
+    },
+    {
+      "id": 7707,
+      "gold": "neutral",
+      "malaya": "neutral",
+      "match": true
+    },
+    {
+      "id": 6467,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 7410,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 7084,
+      "gold": "negative",
+      "malaya": "negative",
+      "match": true
+    },
+    {
+      "id": 6824,
+      "gold": "neutral",
+      "malaya": "neutral",
+      "match": true
+    },
+    {
+      "id": 6667,
+      "gold": "positive",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 7898,
+      "gold": "negative",
+      "malaya": "negative",
+      "match": true
+    },
+    {
+      "id": 7555,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 6671,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 7691,
+      "gold": "neutral",
+      "malaya": "neutral",
+      "match": true
+    },
+    {
+      "id": 7247,
+      "gold": "negative",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 6618,
+      "gold": "positive",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 6745,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 7289,
+      "gold": "neutral",
+      "malaya": "positive",
+      "match": false
+    },
+    {
+      "id": 7163,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 6705,
+      "gold": "negative",
+      "malaya": "negative",
+      "match": true
+    },
+    {
+      "id": 6520,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 7261,
+      "gold": "negative",
+      "malaya": "negative",
+      "match": true
+    },
+    {
+      "id": 7003,
+      "gold": "positive",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 6689,
+      "gold": "negative",
+      "malaya": "positive",
+      "match": false
+    },
+    {
+      "id": 7328,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 7670,
+      "gold": "positive",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 6746,
+      "gold": "neutral",
+      "malaya": "neutral",
+      "match": true
+    },
+    {
+      "id": 7469,
+      "gold": "neutral",
+      "malaya": "positive",
+      "match": false
+    },
+    {
+      "id": 7399,
+      "gold": "neutral",
+      "malaya": "negative",
+      "match": false
+    },
+    {
+      "id": 7810,
+      "gold": "positive",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 7894,
+      "gold": "negative",
+      "malaya": "negative",
+      "match": true
+    },
+    {
+      "id": 7050,
+      "gold": "positive",
+      "malaya": "negative",
+      "match": false
+    },
+    {
+      "id": 7381,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 6961,
+      "gold": "neutral",
+      "malaya": "neutral",
+      "match": true
+    },
+    {
+      "id": 6996,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 7362,
+      "gold": "neutral",
+      "malaya": "neutral",
+      "match": true
+    },
+    {
+      "id": 7226,
+      "gold": "positive",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 6700,
+      "gold": "negative",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 6630,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 7172,
+      "gold": "neutral",
+      "malaya": "positive",
+      "match": false
+    },
+    {
+      "id": 7489,
+      "gold": "positive",
+      "malaya": "positive",
+      "match": true
+    },
+    {
+      "id": 6767,
+      "gold": "positive",
+      "malaya": "neutral",
+      "match": false
+    },
+    {
+      "id": 7684,
+      "gold": "positive",
+      "malaya": "neutral",
+      "match": false
+    }
+  ]
+}
