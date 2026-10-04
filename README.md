@@ -46,3 +46,11 @@ native pools, reproducible from raw rows.
 
 MIT licensed. The malaya comparison is documented, reproducible, and
 measured - see audit.md.
+
+## Known limitations (measured, not hidden)
+
+Nox-4B zero-shot scores 9/10 on the polarity suite: the single failure is
+the negation flip ("Saya TIDAK marah, barang sampai dengan baik" reads
+negative). malaya's shipped model fails the same case plus one more (8/10)
+and scores 0.515 on our independent pool. Negation handling is the top
+robustness gap for both stacks; fine-tuned adapters narrow it.
