@@ -1,0 +1,78 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>sev — System One decision stack for Malaysian language</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+ body{background:#101418;color:#d7dde3;font:15px/1.6 ui-monospace,Menlo,monospace;margin:0;padding:2.5rem 1.5rem}
+ main{max-width:880px;margin:0 auto}
+ h1{font-size:1.4rem;color:#f2f5f8;margin:0 0 .3rem}
+ h2{font-size:1rem;color:#8296a5;margin:2.2rem 0 .6rem}
+ p{margin:.6rem 0}
+ a{color:#5fd3a1;text-decoration:none;border-bottom:1px solid #2b5c47}
+ a:hover{color:#7de3b8}
+ table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:14px;font-variant-numeric:tabular-nums}
+ th,td{padding:.45rem .6rem;border-bottom:1px solid #232b33;text-align:left}
+ .ok{color:#5fd3a1}.bad{color:#e07a7a}.neu{color:#ecc45f}
+ .kicker{color:#6d7d8a;font-size:.85rem;margin-bottom:2rem}
+ .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin:1.2rem 0}
+ .card{background:#161b21;border:1px solid #232b33;border-radius:10px;padding:1.1rem 1.2rem}
+ .card b{color:#f2f5f8;display:block;margin-bottom:.4rem}
+ .card p{margin:0;color:#9fb0bd;font-size:13.5px}
+ .foot{color:#6d7d8a;font-size:.85rem;margin-top:2.5rem;border-top:1px solid #232b33;padding-top:1rem}
+</style></head><body><main>
+<h1>sev</h1>
+<p class="kicker">System One decision stack for Malaysian language — open source, MIT licensed</p>
+
+<p>One model answers many questions. Instead of one specialized classifier
+per task, a single System One model reads a message once and returns
+per-option probabilities for every question asked — sentiment, language,
+urgency, toxicity, emotion — in one forward pass.</p>
+
+<p>Every number on this page is measured on our own held-out native Malay
+pools, on identical rows for every model, reproducible from raw data in
+this repository.</p>
+
+<h2>Benchmark</h2>
+<table>
+ <tr><th>Task</th><th>Our fine-tuned Qwen3-4B</th><th>Nox-4B zero-shot</th><th>malaya published</th></tr>
+ <tr><td>toxic</td><td class="ok">0.870</td><td class="ok">0.874</td><td>0.818 <span class="ok">beaten</span></td></tr>
+ <tr><td>sentiment</td><td class="ok">0.874</td><td>0.766</td><td>0.994 (in-distribution)</td></tr>
+ <tr><td>emotion</td><td>0.798</td><td>0.834</td><td>0.998 (in-distribution)</td></tr>
+</table>
+<p>The malaya columns come from models scored on their own benchmark
+distributions. On independent text, the model their package ships today
+scores <span class="bad">0.515</span> on our pool, with a negation blind
+spot our audit documents case by case.</p>
+
+<h2>Subpages</h2>
+<div class="cards">
+ <a class="card" href="eval_browser.html"><b>Eval browser</b>
+ <p>Every held-out row with gold labels and predictions from Nox, Lux,
+ our fine-tuned Qwen, Codex, and Vega — filterable, searchable, with
+ the ensemble vote and unanimity flags.</p></a>
+ <a class="card" href="malaya_metric_analysis.md"><b>Malaya audit</b>
+ <p>The adversarial audit: sanity probes, the negation failures, and
+ the 48-point collapse from published claim to independent pool.</p></a>
+ <a href="datasets/"><b>Datasets</b></a>
+ <p>The eval splits, the sentiment pool, and the operator gold labels —
+ first-party corpus, teacher-labeled, provenance documented.</p>
+</div>
+
+<h2>The stack</h2>
+<p><b>nox_server.py</b> serves any Decision-2.0 model behind the System
+One envelope. <b>jev_client.py</b> routes trained fields to a millisecond
+fast tier and untrained questions to the decision tier.
+<b>finetune_qwen_s17.py</b> is the fine-tune recipe that produced the
+benchmark row. <b>audit_malaya.py</b> runs the adversarial audit.
+<b>test_polarity.py</b> is the negation-flip robustness suite.</p>
+
+<h2>Honest numbers</h2>
+<p>Two things we state plainly: our sentiment and emotion columns sit
+below malaya's 0.994/0.998, because those were earned on their own
+benchmark text and ours are independent. And our own fine-tune gain was
+once inflated 10 points by an eval-split leak we caught, measured, and
+retired — the leak is documented in the season ledger, not buried.</p>
+
+<p class="foot">MIT licensed. Built on Qwen3.5-4B and Decision-2.0 open
+weights. The malaya comparison is reproducible from
+<code>scripts/audit_malaya.py</code> and the datasets directory.</p>
+</main></body></html>
