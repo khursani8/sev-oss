@@ -63,7 +63,10 @@ function auditRows(){
   the model does on text it has never seen.</p>
   <p>We gave the model malaya actually ships 200 real Malaysian messages —
   blog posts, support messages, questions — collected and labeled
-  independently of malaya. It classified <b>51.5%</b> correctly. A guess
+  independently of malaya. The reference labels come from the commercial
+  System One API (JEV) - an external referee no audited model depends
+  on, spot-checked against human judgment on a 27-row subset at 85%
+  agreement. The audited model classified <b>51.5%</b> correctly. A guess
   weighted slightly toward "positive" would score about the same.</p>
   <h2>It misses negation completely</h2>
   <p>We also asked ten questions with obvious answers. It got eight right.
