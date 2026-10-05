@@ -6,7 +6,7 @@
  h1{font-size:1.15rem}h2{font-size:1rem;color:#8296a5}
  table{width:100%;border-collapse:collapse;margin:.8rem 0;font-size:13px}
  th,td{padding:.4rem .6rem;border-bottom:1px solid #232b33;text-align:left;vertical-align:top;font-variant-numeric:tabular-nums}
- .m{max-width:340px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ .m{max-width:560px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;cursor:pointer}.m.open{-webkit-line-clamp:unset;max-width:none}^M
  .ok{color:#5fd3a1}.bad{color:#e07a7a}.neu{color:#ecc45f}
  .tabs button{background:#232b33;color:#d7dde3;border:1px solid #3a4550;border-radius:6px;
    padding:.5rem 1rem;margin:.2rem;cursor:pointer;font:inherit}
@@ -40,7 +40,7 @@ function taskRows(){
   const t=D.tasks[tab];const f=t.models;
   let rows=t.rows.filter(r=>(!wrongOnly||!r.models_agree)&&(!q||r.text.toLowerCase().includes(q)));
   const head=`<tr><th>id</th><th class="m">text</th><th>gold</th>${f.map(m=>`<th>${m}</th>`).join("")}<th>fable</th></tr>`;
-  const body=rows.slice(0,300).map(r=>`<tr><td>${r.id}</td><td class="m" title="${esc(r.text)}">${esc(r.text)}</td><td>${esc(r.gold)}</td>${f.map(m=>`<td>${chip(r[m],r.gold)}</td>`).join("")}<td>${chip(r.fable, r.gold)}</td></tr>`).join("");
+  const body=rows.slice(0,300).map(r=>`<tr><td>${r.id}</td><td class="m" tabindex="0" aria-expanded="false" title="${esc(r.text)}">${esc(r.text)}</td><td>${esc(r.gold)}</td>${f.map(m=>`<td>${chip(r[m],r.gold)}</td>`).join("")}<td>${chip(r.fable, r.gold)}</td></tr>`).join("");
   return `${t.teacher_note?`<p class="neu">${esc(t.teacher_note)}</p>`:""}<table>${head}${body}</table><p class="neu">showing ${Math.min(rows.length,300)} of ${rows.length} matching rows</p>`;
 }
 function goldRows(){
@@ -51,7 +51,7 @@ function goldRows(){
     const cell=k=>chip((L[k]&&L[k].labels&&Object.values(L[k].labels)[0])||"");
     const ens=Object.values(r.ensemble||{})[0]||"—";
     const badge=r.unanimous?'<span class="chip u">unanimous</span>':'<span class="chip n">majority</span>';
-    return `<tr><td>${esc(r.sheet)}</td><td>${r.row_id}</td><td class="m" title="${esc(r.text)}">${esc(r.text)}</td><td>${cell("fable")}</td><td>${cell("nox")}</td><td>${cell("vega")}</td><td>${cell("codex")}</td><td>${chip(ens)}</td><td>${badge}</td></tr>`;}).join("");
+    return `<tr><td>${esc(r.sheet)}</td><td>${r.row_id}</td><td class="m" tabindex="0" aria-expanded="false" title="${esc(r.text)}">${esc(r.text)}</td><td>${cell("fable")}</td><td>${cell("nox")}</td><td>${cell("vega")}</td><td>${cell("codex")}</td><td>${chip(ens)}</td><td>${badge}</td></tr>`;}).join("");
   return `<table>${head}${body}</table><p class="neu">showing ${Math.min(rows.length,300)} of ${rows.length}</p>`;
 }
 function auditRows(){
@@ -109,5 +109,9 @@ document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{
 document.getElementById("q").oninput=e=>{q=e.target.value.toLowerCase();render();};
 document.getElementById("wrong").onchange=e=>{wrongOnly=e.target.checked;render();};
 document.querySelectorAll(".tabs button").forEach(b=>{const t=D.tasks[b.dataset.t];if(t)b.textContent=b.dataset.t+" ("+t.rows.length+")"});
+const out=document.getElementById("out");
+function toggleCell(t){t.classList.toggle("open");t.setAttribute("aria-expanded",t.classList.contains("open")?"true":"false");}
+out.addEventListener("click",e=>{const t=e.target.closest("td.m");if(t)toggleCell(t);});
+out.addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&e.target.matches("td.m")){e.preventDefault();toggleCell(e.target);}});
 render();
 </script></body></html>
