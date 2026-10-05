@@ -21,11 +21,11 @@
 </style></head><body><main>
 <h1>sevBench — eval data and multi-model predictions</h1>
 <p class="neu">All rows are held-out splits, native Malay, scored against the same teacher column.
-Sentiment/emotion/toxic bars from malaya: 0.994 / 0.998 / 0.818 (in-distribution; their shipped model audits at 0.515 on our pool — see the audit tab).</p>
+Sentiment/emotion/toxic columns from malaya: 0.994 / 0.998 / 0.818 (in-distribution; their shipped model audits at 0.515 on our pool — see the audit tab).</p>
 <div class="tabs">
- <button class="on" data-t="sentiment">sentiment (1600)</button>
- <button data-t="emotion">emotion (500)</button>
- <button data-t="toxic">toxic (500)</button>
+ <button class="on" data-t="sentiment">sentiment</button>
+ <button data-t="emotion">emotion</button>
+ <button data-t="toxic">toxic</button>
  <button data-t="gold">ensemble gold (299)</button>
  <button data-t="audit">malaya audit</button>
 </div>
@@ -108,5 +108,6 @@ document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{
   b.classList.add("on");tab=b.dataset.t;render();});
 document.getElementById("q").oninput=e=>{q=e.target.value.toLowerCase();render();};
 document.getElementById("wrong").onchange=e=>{wrongOnly=e.target.checked;render();};
+document.querySelectorAll(".tabs button").forEach(b=>{const t=D.tasks[b.dataset.t];if(t)b.textContent=b.dataset.t+" ("+t.rows.length+")"});
 render();
 </script></body></html>

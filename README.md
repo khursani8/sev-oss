@@ -24,8 +24,13 @@ from raw rows. See [malaya_metric_analysis.md](malaya_metric_analysis.md).
 | emotion | 0.798 | 0.834 | 0.998 (in-distribution) |
 
 Codex (OpenAI) zero-shot on the same splits: sentiment 0.794, emotion
-0.688, toxic 0.788. The full per-row data is in the eval browser
-([eval_browser.html](eval_browser.html), also live on GitHub Pages).
+0.688, toxic 0.788. GLM 5.3 zero-shot on the same splits: sentiment 0.816,
+emotion 0.754, toxic 0.814 (the provider refused 7 of 2600 rows, counted as
+misses). The full per-row data is in the eval browser
+([eval_browser.html](eval_browser.html), live at <https://khursani8.github.io/sev-oss/eval_browser.html>).
+
+### The malaya columns
+
 malaya 5.1 ships no toxicity model. The eval browser's toxic column instead runs
 malaya 4.9.2.1's xlnet toxicity model, from the last malaya line that shipped the
 task. On our 500-row toxic pool it scores 0.678, with precision 0.80 and recall
