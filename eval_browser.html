@@ -40,7 +40,7 @@ function taskRows(){
   const t=D.tasks[tab];const f=t.models;
   let rows=t.rows.filter(r=>(!wrongOnly||!r.models_agree)&&(!q||r.text.toLowerCase().includes(q)));
   const head=`<tr><th>id</th><th class="m">text</th><th>gold</th>${f.map(m=>`<th>${m}</th>`).join("")}<th>fable</th><th>glm</th></tr>`;
-  const body=rows.slice(0,300).map(r=>`<tr><td>${r.id}</td><td class="m" title="${esc(r.text)}">${esc(r.text)}</td><td>${esc(r.gold)}</td>${f.map(m=>`<td>${chip(r[m],r.gold)}</td>`).join("")}<td class="neu">unreachable</td></tr>`).join("");
+  const body=rows.slice(0,300).map(r=>`<tr><td>${r.id}</td><td class="m" title="${esc(r.text)}">${esc(r.text)}</td><td>${esc(r.gold)}</td>${f.map(m=>`<td>${chip(r[m],r.gold)}</td>`).join("")}<td>${chip(r.glm, r.gold)}</td></tr>`).join("");
   return `<table>${head}${body}</table><p class="neu">showing ${Math.min(rows.length,300)} of ${rows.length} matching rows</p>`;
 }
 function goldRows(){
