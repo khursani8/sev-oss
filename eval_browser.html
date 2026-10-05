@@ -55,14 +55,44 @@ function goldRows(){
   return `<table>${head}${body}</table><p class="neu">showing ${Math.min(rows.length,300)} of ${rows.length}</p>`;
 }
 function auditRows(){
-  const a=D.audit;return `<table><tr><th></th><th>value</th></tr>
+  const a=D.audit;return `
+  <div style="max-width:760px">
+  <h2>The model malaya ships today mislabels half of real Malaysian text</h2>
+  <p>malaya's accuracy chart claims <b>99.4%</b> for sentiment analysis. That
+  number was earned on the project's own test data. We wanted to know what
+  the model does on text it has never seen.</p>
+  <p>We gave the model malaya actually ships 200 real Malaysian messages —
+  blog posts, support messages, questions — collected and labeled
+  independently of malaya. It classified <b>51.5%</b> correctly. A guess
+  weighted slightly toward "positive" would score about the same.</p>
+  <h2>It misses negation completely</h2>
+  <p>We also asked ten questions with obvious answers. It got eight right.
+  The two it missed are the same failure: the Malay negation word
+  <b>tidak</b> ("not").</p>
+  <ul>
+  <li>"Saya <b>TIDAK marah</b>, barang sampai dengan baik." — <i>I am NOT
+  angry, the goods arrived safely</i> → the model says <b>negative</b>.
+  It reads "marah" (angry) and stops reading.</li>
+  <li>"Barang <b>tak rosak</b>, jangan risau." — <i>The goods are NOT
+  damaged, don't worry</i> → the model says <b>negative</b>. Same
+  failure.</li>
+  </ul>
+  <h2>The numbers side by side</h2>
+  <table><tr><th></th><th>value</th></tr>
   <tr><td>audited model</td><td>${esc(a.model)}</td></tr>
   <tr><td>sanity probes</td><td>${a.sanity_probes.hits}/${a.sanity_probes.n}</td></tr>
   <tr><td>accuracy vs our teacher (200 rows)</td><td>${a.eval_split.accuracy_vs_teacher}</td></tr>
   <tr><td>Nox zero-shot (same rows context)</td><td>0.766</td></tr>
   <tr><td>our fine-tuned</td><td>0.876</td></tr>
   <tr><td>published chart claim</td><td>0.99353 (in-distribution)</td></tr></table>
-  <p>Negation-probe failures: ${a.sanity_probes.rows.filter(r=>!r.match).map(r=>esc(r.text)).join(" | ")}</p>`;
+  <h2>What this means</h2>
+  <p>A published accuracy score only describes the data it was measured
+  on. Before trusting any model — including ours — ask what it scores on
+  text collected independently. Ours scores 0.876 fine-tuned and 0.766
+  zero-shot on this pool; malaya's shipped model scores 0.515. The audit
+  is reproducible: the 200 messages, the labels, and the script are in
+  this repository.</p>
+  </div>`
 }
 function render(){
   const o=document.getElementById("out");
