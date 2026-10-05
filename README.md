@@ -26,6 +26,11 @@ from raw rows. See [malaya_metric_analysis.md](malaya_metric_analysis.md).
 Codex (OpenAI) zero-shot on the same splits: sentiment 0.794, emotion
 0.688, toxic 0.788. The full per-row data is in the eval browser
 ([eval_browser.html](eval_browser.html), also live on GitHub Pages).
+malaya 5.1 ships no toxicity model. The eval browser's toxic column instead runs
+malaya 4.9.2.1's xlnet toxicity model, from the last malaya line that shipped the
+task. On our 500-row toxic pool it scores 0.678, with precision 0.80 and recall
+0.41: it misses most toxic text, and its accuracy leans on predicting not_toxic
+on the majority class (baseline 0.534).
 
 ## What is here
 
